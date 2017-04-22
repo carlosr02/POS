@@ -20,6 +20,7 @@ function converter_romano_em_decimal(romano){
   var resultado = 0
 
   for(i = romano.length - 1; i >= 0; i--){
+    //TODO: verificar se algarismo se repete mais de 3 vezes, mas não seguidamente, como em: XXXIX (39)
     if(romano.split(romano[i]).length-1 > 3 || (romano.split(romano[i]).length-1 > 1 && (romano[i] == "V" || romano[i] == "L" || romano[i] == "D"))){
       console.log("Número inválido")
       process.exit(-1)
