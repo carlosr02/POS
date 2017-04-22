@@ -21,9 +21,8 @@ process.exit(0);
 
 function ler_entrada(nome_do_arquivo) {
     var fs = require('fs');
-    // var arquivo = fs.readFileSync(nome_do_arquivo);
-    // var json = JSON.parse(arquivo);
-    var json = require(nome_do_arquivo);
+    var arquivo = fs.readFileSync(nome_do_arquivo);
+    var json = JSON.parse(arquivo);
 
     if (json.expressao != undefined) {
         return [json.expressao];
@@ -48,7 +47,6 @@ function converter_strings_em_expressoes(strings) {
 }
 
 function executar_expressoes(expressoes) {
-    var expressao;
     var resultado;
     var resultados = [];
     for (var i = 0; i < expressoes.length; i++) {
