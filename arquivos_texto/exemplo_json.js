@@ -1,0 +1,6 @@
+var json = require("./natalcard.json")
+console.log(json[1].matricula)
+console.log(json[1].nome)
+console.log(json[1].cpf)
+console.log(json[1].email)
+console.log(json[1].telefone)

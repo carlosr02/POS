@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<alunos>
+    <aluno matricula="2014101111XXX1">
+        <nome>Fulano 1</nome>
+        <cpf>XXX.XXX.XXX-XX</cpf>
+        <email>xxx@academico.ifrn.edu.br</email>
+        <telefone>(XX)XXXXX-XXXX</telefone>
+    </aluno>
+    <aluno matricula="2014101111XXX2">
+        <nome>Fulano 2</nome>
+        <cpf>XXX.XXX.XXX-XX</cpf>
+        <email>xxx@academico.ifrn.edu.br</email>
+        <telefone>(XX)XXXXX-XXXX</telefone>
+    </aluno>
+    <aluno matricula="2014101111XXX3">
+        <nome>Fulano 3</nome>
+        <cpf>XXX.XXX.XXX-XX</cpf>
+        <email>xxx@academico.ifrn.edu.br</email>
+        <telefone>(XX)XXXXX-XXXX</telefone>
+    </aluno>
+</alunos>

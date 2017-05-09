@@ -1,0 +1,24 @@
+[
+        {
+            "matricula": "2014101111XXX1",
+            "nome": "Fulano 1",
+            "cpf": "XXX.XXX.XXX-XX",
+            "email": "xxx@academico.ifrn.edu.br",
+            "telefone": "(XX)XXXXX-XXXX"
+        },
+        {
+            "matricula": "2014101111XXX2",
+            "nome": "Fulano 2",
+            "cpf": "XXX.XXX.XXX-XX",
+            "email": "xxx@academico.ifrn.edu.br",
+            "telefone": "(XX)XXXXX-XXXX"
+        },
+        {
+            "matricula": "2014101111XXX3",
+            "nome": "Fulano 3",
+            "cpf": "XXX.XXX.XXX-XX",
+            "email": "xxx@academico.ifrn.edu.br",
+            "telefone": "(XX)XXXXX-XXXX"
+        }
+
+]
