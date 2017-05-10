@@ -25,7 +25,12 @@ function ler_arquivo(extensao, arquivo){
 	}
 }
 
+function sortNumber(a,b){
+	return a - b
+}
+
 function agrupar(numeros){
+	numeros.sort(sortNumber)
 	var conjuntos = []
 	var conjunto = []
 	for(var i = 0; i <= numeros.length; i++){
