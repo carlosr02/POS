@@ -1,16 +1,6 @@
 var nome_arquivo = ler_entrada()
-//console.log(nome_arquivo)
-
 var extensao = verificar_extensao(nome_arquivo)
-//console.log(extensao)
-
-var lista = ler_arquivo(extensao, nome_arquivo)
-//console.log(lista)
-
-var intervalos = agrupar(lista)
-//console.log(intervalos)
-
-escrever_arquivo("./saida.json", intervalos)
+ler_arquivo(extensao, nome_arquivo)
 
 function ler_entrada(){
 	if(process.argv[2] == undefined){
@@ -26,17 +16,15 @@ function verificar_extensao(nome_arquivo){
 }
 
 function ler_arquivo(extensao, arquivo){
-	var resultado
-	if(extensao == "json") resultado = ler_json(arquivo)
-	else if(extensao == "xml") resultado = ler_xml(arquivo, function(err,data){
-		return data
+	if(extensao == "json") ler_json(arquivo)
+	else if(extensao == "xml") ler_xml(arquivo, function(err, result){
+		return agrupar(result.lista.numero)
 	})
-	else if(extensao == "csv") resultado = ler_csv(arquivo)
+	else if(extensao == "csv") ler_csv(arquivo)
 	else{
 		console.log("Extensão inválida")
 		process.exit(-1)
 	}
-	return resultado
 }
 
 function agrupar(numeros){
@@ -51,7 +39,7 @@ function agrupar(numeros){
 			conjunto.push(numeros[i])
 		}
 	}
-	return conjuntos
+	escrever_arquivo("./saida.json", conjuntos)
 }
 
 function escrever_arquivo(nome_arquivo_saida,valores){
@@ -71,14 +59,14 @@ function escrever_arquivo(nome_arquivo_saida,valores){
 
 function ler_json(arquivo){
 	var resultado = require(arquivo)
-	return resultado.lista
+	return agrupar(resultado.lista)
 }
 
 function ler_xml(arquivo, funcao){
 	var fs = require('fs')
 	var xmlParser = require('xml2js').parseString
 
-	fs.readFile(arquivo, function(err,data){
+	fs.readFile(arquivo, function(err,data) {
 		xmlParser(data, funcao)
 	})
 }
@@ -89,6 +77,6 @@ function ler_csv(arquivo){
 
 	fs.readFile(arquivo, 'utf8', function(err,data){
 		var resultado = csv.parse(data)
-		return resultado
+		return agrupar(resultado[0])
 	})
 }
