@@ -34,26 +34,21 @@ function agrupar(numeros){
 		if(conjunto.length == 0) conjunto.push(numeros[i])
 		else if(numeros[i] - 1 == numeros[i-1]) conjunto.push(numeros[i])
 		else{
-			conjuntos.push(conjunto)
+			if(conjunto.length == 1) conjuntos.push("[" + conjunto[0] + "]")
+			else conjuntos.push("[" + conjunto[0] + "-" + conjunto[conjunto.length-1] + "]")
 			conjunto = []
 			conjunto.push(numeros[i])
 		}
 	}
 
-	var intervalos = []
-	for(var i = 0; i < conjuntos.length; i++){
-		var conjunto = conjuntos[i]
-		if(conjunto.length == 1) intervalos.push("[" + conjunto[0] + "]")
-		else intervalos.push("[" + conjunto[0] + "-" + conjunto[conjunto.length-1] + "]")
-	}
-	escrever_arquivo("./saida.json", intervalos)
+	escrever_arquivo("./saida.json", conjuntos)
 }
 
 function escrever_arquivo(nome_arquivo_saida,valores){
-	var fs = require('fs');
-  var json = valores;
-  var s = JSON.stringify(json);
-  fs.writeFileSync(nome_arquivo_saida, s);
+	var fs = require('fs')
+  var json = valores
+  var s = JSON.stringify(json)
+  fs.writeFileSync(nome_arquivo_saida, s)
 	console.log("Resultado salvo com sucesso")
 }
 
