@@ -17,9 +17,7 @@ function verificar_extensao(nome_arquivo){
 
 function ler_arquivo(extensao, arquivo){
 	if(extensao == "json") ler_json(arquivo)
-	else if(extensao == "xml") ler_xml(arquivo, function(err, result){
-		return agrupar(result.lista.numero)
-	})
+	else if(extensao == "xml") ler_xml(arquivo)
 	else if(extensao == "csv") ler_csv(arquivo)
 	else{
 		console.log("Extensão inválida")
@@ -61,8 +59,10 @@ function ler_xml(arquivo, funcao){
 	var fs = require('fs')
 	var xmlParser = require('xml2js').parseString
 
-	fs.readFile(arquivo, function(err,data) {
-		xmlParser(data, funcao)
+	fs.readFile(arquivo, function(err,data){
+		xmlParser(data, function(err,result){
+			return agrupar(result.lista.numero)
+		})
 	})
 }
 
